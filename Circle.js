@@ -25,6 +25,7 @@ export default class ProgressCircle extends Component {
     textStyle: PropTypes.any,
     thickness: PropTypes.number,
     unfilledColor: PropTypes.string,
+    allowFontScaling: PropTypes.bool
   };
 
   static defaultProps = {
@@ -36,6 +37,7 @@ export default class ProgressCircle extends Component {
     showsText: false,
     size: 40,
     thickness: 3,
+    allowFontScaling: true
   };
 
   render() {
@@ -53,6 +55,7 @@ export default class ProgressCircle extends Component {
       textStyle,
       thickness,
       unfilledColor,
+      allowFontScaling,
       ...restProps,
     } = this.props;
 
@@ -107,7 +110,9 @@ export default class ProgressCircle extends Component {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-            <Text style={[{
+            <Text
+              allowFontScaling={allowFontScaling}
+              style={[{
               color: color,
               fontSize: textSize / 4.5,
               fontWeight: '300',
